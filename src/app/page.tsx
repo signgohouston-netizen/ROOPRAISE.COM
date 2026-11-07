@@ -288,8 +288,8 @@ export default function Home() {
           <h2 className="font-display text-3xl font-bold sm:text-4xl">Open your store on Roopraise</h2>
           <p className="max-w-xl text-white/85">
             Manufacturers and brands across Asia — sell wholesale (B2B), retail (B2C), or both.
-            Reach buyers in the US, Canada, UK &amp; Europe. No listing fees, no subscription —
-            you only pay when you sell.
+            Reach buyers in the US, Canada, UK &amp; Europe. Start free and upgrade as you grow
+            with simple membership plans.
           </p>
           <Link
             href="/sell"

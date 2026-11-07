@@ -36,7 +36,7 @@ const reasons = [
   {
     icon: "🆓",
     title: "No fees to start — ever",
-    body: "No listing fees. No monthly subscription. You only pay a small commission when an order actually completes.",
+    body: "Start on a free plan — 10 listings, no commission, no transaction fees. Upgrade to a paid membership only when you want more listings and growth tools.",
   },
   {
     icon: "🛡️",
@@ -105,7 +105,7 @@ const faqs = [
   },
   {
     q: "What does it cost?",
-    a: "Listing is free and there's no subscription. You only pay a commission on completed sales — see the pricing chart for exact percentages by category.",
+    a: "You can start free with 10 listings and no commission. Paid memberships — Silver, Gold and Platinum — add more listings and growth tools. See the Pricing page for all plans.",
   },
   {
     q: "Can I contact the buyer directly?",

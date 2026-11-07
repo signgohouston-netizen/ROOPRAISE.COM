@@ -11,7 +11,7 @@ const steps = [
 ];
 
 const faqs = [
-  { q: "What does it cost?", a: "Nothing to list and nothing monthly. You only pay a commission when an order completes — see the full pricing chart for the exact percentages." },
+  { q: "What does it cost?", a: "Start on the Free plan — 10 listings, no commission and no transaction fees. Paid memberships (Silver, Gold, Platinum) add more listings and growth tools. See the Pricing page for all plans." },
   { q: "Who can sell?", a: "Manufacturers, exporters, and brands across Asia. We're onboarding Pakistan first, then India, Bangladesh, Vietnam, Indonesia and the wider region." },
   { q: "Can I sell wholesale and retail?", a: "Yes — you choose per product. Offer bulk orders with a minimum quantity for businesses (B2B), single units to shoppers (B2C), or both." },
   { q: "How do I get paid?", a: "We collect payment from the buyer and pay you out via Payoneer, Wise, or bank transfer on your chosen schedule." },
@@ -33,8 +33,8 @@ export default function SellPage() {
             </h1>
             <p className="mt-4 max-w-md text-lg text-white/85">
               Roopraise connects suppliers across Asia with retailers and shoppers in the US,
-              Canada, UK and Europe. Sell wholesale, retail, or both. List for free — you only
-              pay when you sell.
+              Canada, UK and Europe. Sell wholesale, retail, or both. Start free, then upgrade
+              as you grow.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link href="#start" className="rounded-full bg-white px-7 py-3.5 font-semibold text-brand-700 transition hover:bg-brand-50">
@@ -112,13 +112,13 @@ export default function SellPage() {
       {/* pricing teaser */}
       <section className="container-x py-12">
         <div className="flex flex-col items-center gap-4 rounded-2xl border border-ink/10 bg-brand-50 px-6 py-12 text-center">
-          <h2 className="font-display text-3xl font-bold text-ink">Simple, sales-based pricing</h2>
+          <h2 className="font-display text-3xl font-bold text-ink">Simple membership plans</h2>
           <p className="max-w-xl text-ink/70">
-            No listing fees. No subscription. Just a commission on each completed order — as low
-            as 5% for top sellers. Use our calculator to see exactly what you take home.
+            Start free with 10 listings, no commission and no transaction fees. Upgrade to Silver,
+            Gold or Platinum for more listings, custom graphics, ads and dedicated support.
           </p>
           <Link href="/pricing" className="rounded-full bg-brand-500 px-7 py-3 font-semibold text-white transition hover:bg-brand-600">
-            View pricing &amp; calculator
+            View membership plans
           </Link>
         </div>
       </section>

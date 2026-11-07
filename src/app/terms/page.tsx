@@ -40,7 +40,7 @@ export default function TermsPage() {
         {
           h: "Fees",
           p: [
-            "Creating an account and listing products is free. Roopraise charges a commission on completed orders and may charge payment-processing and payout fees, as described on the Pricing page. Fees are shown before you confirm.",
+            "Creating an account and listing products is free on the Free plan. Roopraise offers paid membership plans and may charge payment-processing and payout fees, as described on the Pricing page. Fees are shown before you confirm.",
           ],
         },
         {
