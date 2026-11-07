@@ -58,6 +58,8 @@ export const categories: Category[] = [
   { slug: "craft-supplies", name: "Textiles & Supplies", emoji: "🧶", blurb: "Yarn, fabric & raw materials", image: IMG("1584992236310-6edddc08acff", 500) },
   { slug: "industrial-tools", name: "Industrial & Tools", emoji: "🛠️", blurb: "Power tools, hardware & machinery", image: IMG("1504148455328-c376907d081c", 500) },
   { slug: "sports-fitness", name: "Sports & Fitness", emoji: "⚽", blurb: "Sialkot sports goods & gear", image: IMG("1517649763962-0c623066013b", 500) },
+  { slug: "furniture", name: "Furniture", emoji: "🪑", blurb: "Chiniot-style wooden & metal furniture", image: IMG("1538688525198-9b88f6f53126", 500) },
+  { slug: "cutlery", name: "Cutlery & Steel", emoji: "🍴", blurb: "Stainless pots, cookware & cutlery", image: IMG("1556909212-d5b604d0c90d", 500) },
 ];
 
 // Launch cohort — verified manufacturers in Pakistan. More Asian suppliers onboarding.
@@ -230,6 +232,54 @@ export const products: Product[] = [
     price: 22, wholesalePrice: 13, moq: 20, category: "sports-fitness", shop: "gujrat-sports", rating: 4.7, reviews: 429,
     gradient: G.mint, emoji: "⚽",
     description: "Thermo-bonded size-5 match ball with a butyl bladder for superior air retention. FIFA-quality construction; private-label printing available.",
+  },
+  {
+    id: "p23", slug: "chiniot-hand-carved-wooden-sofa-set", title: "Chiniot Hand-Carved Wooden Sofa Set — 5 Seater",
+    price: 680, wholesalePrice: 440, moq: 4, category: "furniture", shop: "north-maple", rating: 4.9, reviews: 142,
+    badge: "Editors' Pick", gradient: G.sand, emoji: "🛋️",
+    description: "Traditional Chiniot craftsmanship — solid sheesham (rosewood) frame with deep hand-carving and premium upholstery. Custom fabric, finish and sizing for bulk orders.",
+  },
+  {
+    id: "p24", slug: "chiniot-sheesham-dining-table-6-seater", title: "Chiniot Sheesham Wood Dining Table — 6 Seater",
+    price: 520, wholesalePrice: 340, moq: 3, category: "furniture", shop: "north-maple", rating: 4.8, reviews: 98,
+    gradient: G.clay, emoji: "🪑",
+    description: "Solid sheesham dining table with hand-carved legs and a natural oiled finish. Seats six; matching carved chairs available. Built for export and hospitality buyers.",
+  },
+  {
+    id: "p25", slug: "wrought-iron-wood-console-table", title: "Wrought Iron & Wood Console Table",
+    price: 240, wholesalePrice: 150, moq: 6, category: "furniture", shop: "north-maple", rating: 4.7, reviews: 156,
+    badge: "New", gradient: G.ink, emoji: "🪵",
+    description: "Chiniot-style mixed-material piece — a reclaimed-wood top on a hand-forged wrought-iron base. Flat-packed for efficient container shipping.",
+  },
+  {
+    id: "p26", slug: "chiniot-hand-carved-bed-frame-king", title: "Chiniot Hand-Carved Wooden Bed Frame — King",
+    price: 590, wholesalePrice: 380, moq: 2, category: "furniture", shop: "north-maple", rating: 4.9, reviews: 73,
+    badge: "Bestseller", gradient: G.rose, emoji: "🛏️",
+    description: "King-size sheesham bed with an intricately carved headboard, a signature of Chiniot woodwork. Brass-inlay and metal-accent options for wholesale orders.",
+  },
+  {
+    id: "p27", slug: "stainless-steel-cookware-pot-set-9pc", title: "Stainless Steel Cookware Pot Set — 9 Piece",
+    price: 72, wholesalePrice: 44, moq: 10, category: "cutlery", shop: "kitchen-kraft", rating: 4.7, reviews: 388,
+    badge: "Bestseller", gradient: G.sky, emoji: "🍲",
+    description: "Encapsulated tri-ply base stainless-steel pots with tempered-glass lids. 9-piece nesting set with retail-ready colour boxes; induction compatible.",
+  },
+  {
+    id: "p28", slug: "stainless-steel-cutlery-set-24pc", title: "24-Piece Stainless Steel Cutlery Set",
+    price: 40, wholesalePrice: 24, moq: 12, category: "cutlery", shop: "kitchen-kraft", rating: 4.6, reviews: 264,
+    gradient: G.sage, emoji: "🍴",
+    description: "Mirror-polished 18/10 stainless cutlery — service for six (knives, forks, spoons, teaspoons). Gift-boxed; custom engraving on bulk orders.",
+  },
+  {
+    id: "p29", slug: "stainless-steel-stock-pot-20l", title: "Heavy-Gauge Stainless Steel Stock Pot — 20L",
+    price: 58, wholesalePrice: 36, moq: 8, category: "cutlery", shop: "kitchen-kraft", rating: 4.8, reviews: 171,
+    gradient: G.sand, emoji: "🥘",
+    description: "Commercial-grade 20-litre stock pot with a sandwich bottom for even heat and riveted handles. Built for caterers, restaurants and wholesalers.",
+  },
+  {
+    id: "p30", slug: "stainless-steel-serving-dish-set-3pc", title: "Stainless Steel Serving Dish Set — 3 Piece",
+    price: 34, wholesalePrice: 21, moq: 12, category: "cutlery", shop: "kitchen-kraft", rating: 4.7, reviews: 142,
+    gradient: G.mint, emoji: "🍽️",
+    description: "Double-wall insulated serving dishes with lids that keep food hot at the table. Nested 3-piece set, popular for gifting and hospitality supply.",
   },
 ];
 
