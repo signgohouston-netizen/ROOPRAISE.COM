@@ -25,8 +25,8 @@ export function LogoMark({ size = 40, className = "" }: { size?: number; classNa
     >
       <defs>
         <linearGradient id="rp-tile" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#e76f43" />
-          <stop offset="1" stopColor="#c53e15" />
+          <stop offset="0" stopColor="#12a892" />
+          <stop offset="1" stopColor="#0b6558" />
         </linearGradient>
       </defs>
 
@@ -59,8 +59,8 @@ export function LogoMark({ size = 40, className = "" }: { size?: number; classNa
       </g>
 
       {/* stitched center */}
-      <circle cx="24" cy="24" r="5.4" fill="#f7b34a" />
-      <circle cx="24" cy="24" r="2.1" fill="#c53e15" />
+      <circle cx="24" cy="24" r="5.4" fill="#f5b301" />
+      <circle cx="24" cy="24" r="2.1" fill="#0b6558" />
     </svg>
   );
 }

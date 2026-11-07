@@ -19,7 +19,7 @@ export default function SearchBar({ className = "" }: { className?: string }) {
         <input
           value={q}
           onChange={(e) => setQ(e.target.value)}
-          placeholder="Search for anything handmade…"
+          placeholder="Search products, suppliers, categories…"
           className="h-11 w-full bg-transparent text-[15px] outline-none placeholder:text-ink/40"
           aria-label="Search products"
         />

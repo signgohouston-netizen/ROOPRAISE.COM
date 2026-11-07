@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getShop, productsByShop, shops } from "@/lib/data";
+import { money } from "@/lib/format";
 import ProductCard from "@/components/ProductCard";
 
 export function generateStaticParams() {
@@ -38,17 +39,41 @@ export default async function ShopPage({
             {shop.name.charAt(0)}
           </span>
           <div className="pb-1">
-            <h1 className="font-display text-3xl font-bold text-ink">{shop.name}</h1>
+            <div className="flex flex-wrap items-center gap-2">
+              <h1 className="font-display text-3xl font-bold text-ink">{shop.name}</h1>
+              {shop.verified && (
+                <span className="rounded-full bg-brand-100 px-2 py-0.5 text-xs font-bold text-brand-700">
+                  ✓ Verified supplier
+                </span>
+              )}
+            </div>
             <p className="text-ink/60">{shop.tagline}</p>
             <div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-ink/60">
               <span>⭐ {shop.rating} rating</span>
-              <span>{shop.sales.toLocaleString()} sales</span>
-              <span>📍 {shop.location}</span>
+              <span>{shop.sales.toLocaleString()} orders</span>
+              <span>{shop.flag} {shop.location}, {shop.country}</span>
               <span>Est. {shop.since}</span>
+            </div>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {shop.wholesale && (
+                <span className="rounded-full bg-brand-50 px-3 py-1 text-xs font-medium text-brand-700">
+                  📦 Wholesale{shop.minOrder ? ` · MOQ from ${money(shop.minOrder)}` : ""}
+                </span>
+              )}
+              {shop.retail && (
+                <span className="rounded-full border border-ink/15 px-3 py-1 text-xs font-medium text-ink/70">
+                  🛍️ Retail single units
+                </span>
+              )}
+              {shop.leadTime && (
+                <span className="rounded-full border border-ink/15 px-3 py-1 text-xs font-medium text-ink/70">
+                  ⏱️ Lead time {shop.leadTime}
+                </span>
+              )}
             </div>
           </div>
           <button className="mt-2 shrink-0 rounded-full bg-ink px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-brand-600 sm:ml-auto">
-            + Follow shop
+            Contact supplier
           </button>
         </div>
 

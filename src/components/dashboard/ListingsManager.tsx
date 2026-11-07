@@ -9,7 +9,7 @@ export type Listing = {
   title: string;
   sku: string;
   category: string;
-  image: string;
+  image?: string;
   emoji: string;
   gradient: [string, string];
   price: number;

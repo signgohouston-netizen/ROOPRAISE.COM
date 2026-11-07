@@ -1,12 +1,16 @@
+"use client";
+
 import { Suspense } from "react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { searchProducts, categories } from "@/lib/data";
 import ProductCard from "@/components/ProductCard";
 
-export const metadata = { title: "Search" };
-
-function Results({ q }: { q: string }) {
+function Results() {
+  const params = useSearchParams();
+  const q = params.get("q") ?? "";
   const items = searchProducts(q);
+
   return (
     <>
       <div className="flex flex-wrap items-baseline justify-between gap-2">
@@ -52,16 +56,11 @@ function Results({ q }: { q: string }) {
   );
 }
 
-export default async function SearchPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ q?: string }>;
-}) {
-  const { q = "" } = await searchParams;
+export default function SearchPage() {
   return (
     <div className="container-x py-8">
       <Suspense fallback={<p className="text-ink/60">Searching…</p>}>
-        <Results q={q} />
+        <Results />
       </Suspense>
     </div>
   );

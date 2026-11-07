@@ -1,28 +1,25 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { CartProvider } from "@/lib/cart";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Chrome from "@/components/Chrome";
 
 export const metadata: Metadata = {
   title: {
-    default: "Roopraise — Handmade & vintage marketplace",
+    default: "Roopraise — Wholesale & retail marketplace, direct from Asia",
     template: "%s · Roopraise",
   },
   description:
-    "Roopraise is a marketplace for independent makers — handmade jewelry, home goods, art, and more from small shops you'll love.",
+    "Roopraise is a cross-border trade marketplace connecting verified manufacturers and brands across Asia with buyers in the US, Canada, UK and Europe. Buy wholesale or retail; suppliers sell B2B, B2C, or both.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body className="min-h-screen">
-        <CartProvider>
-          <Chrome header={<Header />} footer={<Footer />}>
-            {children}
-          </Chrome>
-        </CartProvider>
+        <Chrome header={<Header />} footer={<Footer />}>
+          {children}
+        </Chrome>
       </body>
     </html>
   );

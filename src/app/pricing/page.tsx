@@ -39,15 +39,15 @@ const faqs = [
   },
   {
     q: "How is the commission calculated?",
-    a: "It's a percentage of the order value (item price + shipping), set by category. Your seller tier lowers that percentage as your monthly sales grow. A small per-order fee and standard payment processing also apply — the calculator shows exactly what you keep.",
+    a: "It's a percentage of the order value (item price + shipping), set by category. Your supplier tier lowers that percentage as your monthly sales grow. A small per-order fee and standard payment processing also apply — the calculator shows exactly what you keep.",
   },
   {
     q: "How and when do I get paid?",
-    a: "We market and sell your goods to buyers across the USA, collect payment in USD, and pay you out to Pakistan, India, Bangladesh, the Middle East, and across Asia via Payoneer, Wise, or bank transfer on your chosen schedule.",
+    a: "We market and sell your goods to buyers in the US, Canada, UK and Europe, collect payment securely, and pay you out to Pakistan, India, Bangladesh, the Middle East, and across Asia via Payoneer, Wise, or bank transfer on your chosen schedule.",
   },
   {
-    q: "What happens if I contact a buyer directly?",
-    a: "Sharing contact details or taking a sale off Roopraise breaches the Seller Agreement and can lead to withheld payouts, loss of seller protection, and account suspension. All legitimate communication happens through Roopraise Messages.",
+    q: "What happens if I take an order off-platform?",
+    a: "Taking a sale off Roopraise breaches the Supplier Agreement and can lead to withheld payouts, loss of trade protection, and account suspension. All legitimate communication and orders happen through Roopraise.",
   },
 ];
 
@@ -58,18 +58,18 @@ export default function PricingPage() {
       <section className="bg-gradient-to-br from-brand-500 to-brand-700 text-white">
         <div className="container-x py-16 text-center">
           <span className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-sm font-medium">
-            🌏 For makers in Pakistan, India, Bangladesh, the Middle East & Asia
+            🏭 For suppliers across Asia — starting with Pakistan
           </span>
           <h1 className="mx-auto mt-5 max-w-3xl font-display text-4xl font-bold leading-tight sm:text-5xl">
             List for free. Pay only when you sell.
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-white/85">
-            Roopraise brings your craft to millions of shoppers across the USA. No listing fees,
-            no subscription — just a simple commission on each sale, the way eBay does it.
+            Roopraise brings your products to buyers in the US, Canada, UK and Europe. No listing
+            fees, no subscription — just a simple commission on each completed order.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Link href="/sell" className="rounded-full bg-white px-7 py-3.5 font-semibold text-brand-700 transition hover:bg-brand-50">
-              Open your shop
+              Open your store
             </Link>
             <Link href="#calculator" className="rounded-full border border-white/40 px-7 py-3.5 font-semibold text-white transition hover:bg-white/10">
               Calculate your payout

@@ -6,7 +6,7 @@ import { money } from "@/lib/format";
 import ProductArt from "@/components/ProductArt";
 import ProductCard from "@/components/ProductCard";
 import Stars from "@/components/Stars";
-import AddToCart from "@/components/AddToCart";
+import ContactSupplier from "@/components/ContactSupplier";
 import FavoriteButton from "@/components/FavoriteButton";
 
 export function generateStaticParams() {
@@ -114,7 +114,12 @@ export default async function ProductPage({
                 {shop.name.charAt(0)}
               </span>
               {shop.name}
-              <span className="text-ink/40">· ⭐ {shop.rating}</span>
+              {shop.verified && (
+                <span className="rounded-full bg-brand-100 px-1.5 py-0.5 text-[10px] font-bold text-brand-700">
+                  ✓ Verified
+                </span>
+              )}
+              <span className="text-ink/40">· {shop.flag} {shop.location} · ⭐ {shop.rating}</span>
             </Link>
           )}
 
@@ -144,24 +149,47 @@ export default async function ProductPage({
             </p>
           )}
 
+          {product.wholesalePrice && (
+            <div className="mt-4 rounded-xl2 border border-brand-200 bg-brand-50 p-4">
+              <div className="flex items-center justify-between">
+                <span className="text-sm font-semibold text-brand-800">🏷️ Wholesale price</span>
+                {shop?.minOrder && (
+                  <span className="text-xs text-brand-700">Store MOQ from {money(shop.minOrder)}</span>
+                )}
+              </div>
+              <div className="mt-1 flex items-baseline gap-2">
+                <span className="text-2xl font-bold text-brand-800">{money(product.wholesalePrice)}</span>
+                <span className="text-sm text-brand-700">/ unit</span>
+                {product.moq && (
+                  <span className="ml-auto rounded-full bg-white px-2.5 py-1 text-xs font-medium text-brand-700">
+                    Min. order {product.moq} units
+                  </span>
+                )}
+              </div>
+              <p className="mt-2 text-xs text-brand-700/80">
+                For businesses buying in bulk. Request a quote or samples at checkout.
+              </p>
+            </div>
+          )}
+
           <p className="mt-5 text-[15px] leading-relaxed text-ink/70">{product.description}</p>
 
           <div className="mt-6">
-            <AddToCart product={product} />
+            <ContactSupplier product={product} shop={shop} />
           </div>
 
           <div className="mt-4 flex items-center gap-4 text-sm text-ink/60">
             <div className="flex items-center gap-2">
               <FavoriteButton productId={product.id} className="!static !h-8 !w-8" />
-              Add to favorites
+              Save for later
             </div>
           </div>
 
           {/* trust list */}
           <ul className="mt-6 space-y-2 rounded-xl2 border border-ink/10 bg-white p-5 text-sm text-ink/70">
-            <li className="flex gap-2"><span>🌿</span> Handmade in small batches — slight variation is part of the charm.</li>
-            <li className="flex gap-2"><span>↩️</span> Returns accepted within 30 days.</li>
-            <li className="flex gap-2"><span>🎁</span> Gift wrapping available at checkout.</li>
+            <li className="flex gap-2"><span>🛡️</span> Trade protection — payment released only once your order ships as described.</li>
+            <li className="flex gap-2"><span>✅</span> Ships direct from a verified supplier{shop ? ` in ${shop.location}` : ""}.</li>
+            <li className="flex gap-2"><span>📦</span> Bulk and sample orders welcome — custom quotes on request.</li>
           </ul>
         </div>
       </div>

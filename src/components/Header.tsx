@@ -2,7 +2,6 @@ import Link from "next/link";
 import { Suspense } from "react";
 import { categories } from "@/lib/data";
 import SearchBar from "./SearchBar";
-import CartBadge from "./CartBadge";
 import Logo from "./Logo";
 
 export default function Header() {
@@ -19,21 +18,26 @@ export default function Header() {
             </Suspense>
           </div>
 
-          <nav className="ml-auto flex items-center gap-1">
+          <nav className="ml-auto flex items-center gap-1.5">
             <Link
-              href="/dashboard"
-              className="hidden rounded-full px-3 py-2 text-sm font-medium text-ink transition hover:bg-brand-50 sm:block"
+              href="/sell"
+              className="hidden rounded-full bg-accent-500 px-4 py-2 text-sm font-semibold text-ink transition hover:bg-accent-600 sm:block"
             >
-              Sell on Roopraise
+              Free supplier signup
             </Link>
             <Link
               href="/favorites"
               className="grid h-10 w-10 place-items-center rounded-full text-ink transition hover:bg-brand-50"
-              aria-label="Favorites"
+              aria-label="Saved"
             >
               <span className="text-xl">♡</span>
             </Link>
-            <CartBadge />
+            <Link
+              href="/sell"
+              className="rounded-full px-3 py-2 text-sm font-medium text-ink transition hover:bg-brand-50"
+            >
+              Sign in
+            </Link>
           </nav>
         </div>
 
@@ -46,6 +50,31 @@ export default function Header() {
 
         {/* category nav */}
         <nav className="no-scrollbar -mb-px flex items-center gap-1 overflow-x-auto pb-2">
+          <Link
+            href="/search"
+            className="whitespace-nowrap rounded-full bg-brand-500 px-3 py-1.5 text-sm font-semibold text-white transition hover:bg-brand-600"
+          >
+            Wholesale
+          </Link>
+          <Link
+            href="/search"
+            className="whitespace-nowrap rounded-full border border-ink/15 px-3 py-1.5 text-sm font-medium text-ink/80 transition hover:border-brand-300"
+          >
+            Retail
+          </Link>
+          <Link
+            href="/sellers"
+            className="whitespace-nowrap rounded-full px-3 py-1.5 text-sm font-medium text-ink/70 transition hover:bg-brand-50 hover:text-brand-700"
+          >
+            Suppliers
+          </Link>
+          <Link
+            href="/buyer-requests"
+            className="whitespace-nowrap rounded-full px-3 py-1.5 text-sm font-medium text-ink/70 transition hover:bg-brand-50 hover:text-brand-700"
+          >
+            Buyer Requests
+          </Link>
+          <span className="mx-1 h-4 w-px shrink-0 bg-ink/10" aria-hidden />
           {categories.map((c) => (
             <Link
               key={c.slug}

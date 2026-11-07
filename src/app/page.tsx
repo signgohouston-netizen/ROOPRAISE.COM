@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { categories, products, shops } from "@/lib/data";
+import { money } from "@/lib/format";
 import ProductCard from "@/components/ProductCard";
 import ProductArt from "@/components/ProductArt";
 
@@ -15,29 +16,41 @@ export default function Home() {
         <div className="container-x grid items-center gap-8 py-14 md:grid-cols-2 md:py-20">
           <div className="rise">
             <span className="inline-flex items-center gap-2 rounded-full bg-white px-3 py-1 text-sm font-medium text-brand-700 shadow-sm">
-              🌿 Supporting 40,000+ independent makers
+              🌏 Verified suppliers across Asia · buyers in the US, Canada, UK & Europe
             </span>
             <h1 className="mt-5 font-display text-4xl font-bold leading-tight text-ink sm:text-5xl md:text-6xl">
-              Find something{" "}
-              <span className="text-brand-500">made just for you</span>.
+              Source direct from{" "}
+              <span className="text-brand-500">the makers</span>.
             </h1>
             <p className="mt-5 max-w-md text-lg text-ink/70">
-              Discover handmade, vintage, and one-of-a-kind goods from small shops
-              around the world — the antidote to mass production.
+              Roopraise connects verified manufacturers and brands across Asia with
+              buyers worldwide — <span className="font-semibold text-ink">wholesale for
+              businesses, retail for everyone</span>. One trusted marketplace, both ways to buy.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 href="/search"
                 className="rounded-full bg-brand-500 px-7 py-3.5 text-base font-semibold text-white shadow-sm transition hover:bg-brand-600"
               >
-                Start shopping
+                Buy wholesale
+              </Link>
+              <Link
+                href="/search"
+                className="rounded-full border-2 border-ink/15 bg-white px-7 py-3.5 text-base font-semibold text-ink transition hover:border-brand-300"
+              >
+                Shop retail
               </Link>
               <Link
                 href="/sell"
-                className="rounded-full border border-ink/20 bg-white px-7 py-3.5 text-base font-semibold text-ink transition hover:border-ink/40"
+                className="rounded-full border-2 border-accent-500 bg-white px-7 py-3.5 text-base font-semibold text-accent-700 transition hover:bg-accent-50"
               >
-                Open your shop
+                Become a supplier
               </Link>
+            </div>
+            <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-ink/60">
+              <span className="flex items-center gap-1.5">✅ Verified suppliers</span>
+              <span className="flex items-center gap-1.5">🔒 Secure trade payments</span>
+              <span className="flex items-center gap-1.5">🚚 Door-to-door shipping</span>
             </div>
           </div>
 
@@ -75,10 +88,26 @@ export default function Home() {
         </div>
       </section>
 
+      {/* MARKETS STRIP */}
+      <section className="border-y border-ink/10 bg-white">
+        <div className="container-x flex flex-col items-center gap-4 py-6 sm:flex-row sm:justify-between">
+          <p className="text-sm font-semibold uppercase tracking-wide text-ink/40">
+            Selling into
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm font-medium text-ink/70">
+            <span>🇺🇸 United States</span>
+            <span>🇨🇦 Canada</span>
+            <span>🇬🇧 United Kingdom</span>
+            <span>🇪🇺 Europe</span>
+            <span className="text-ink/40">+ more</span>
+          </div>
+        </div>
+      </section>
+
       {/* CATEGORIES */}
       <section className="container-x py-14">
         <div className="mb-6 flex items-end justify-between">
-          <h2 className="font-display text-2xl font-bold text-ink sm:text-3xl">Shop by category</h2>
+          <h2 className="font-display text-2xl font-bold text-ink sm:text-3xl">Source by category</h2>
           <Link href="/search" className="text-sm font-medium text-brand-600 hover:underline">
             See all
           </Link>
@@ -110,11 +139,12 @@ export default function Home() {
 
       {/* VALUE PROPS */}
       <section className="border-y border-ink/10 bg-white">
-        <div className="container-x grid gap-6 py-10 sm:grid-cols-3">
+        <div className="container-x grid gap-6 py-10 sm:grid-cols-2 lg:grid-cols-4">
           {[
-            { icon: "🤲", title: "Made by real people", body: "Every item comes from an independent maker or small studio." },
-            { icon: "🔒", title: "Shop with confidence", body: "Secure checkout and a purchase guarantee on every order." },
-            { icon: "🌎", title: "Better for the planet", body: "Small-batch and vintage goods mean less waste, more meaning." },
+            { icon: "✅", title: "Verified suppliers", body: "Every manufacturer is vetted — business checked, samples reviewed, ratings earned." },
+            { icon: "📦", title: "Wholesale & retail", body: "Order by the pallet with clear MOQs, or buy a single piece. Each supplier chooses." },
+            { icon: "🛡️", title: "Trade protection", body: "Your payment is held securely and only released once your order ships as described." },
+            { icon: "🌍", title: "Direct from Asia", body: "Cut out the middleman — buy factory-direct and ship door-to-door worldwide." },
           ].map((v) => (
             <div key={v.title} className="flex gap-4">
               <span className="text-3xl">{v.icon}</span>
@@ -131,8 +161,8 @@ export default function Home() {
       <section className="container-x py-14">
         <div className="mb-6 flex items-end justify-between">
           <div>
-            <h2 className="font-display text-2xl font-bold text-ink sm:text-3xl">Popular right now</h2>
-            <p className="mt-1 text-ink/60">The pieces shoppers can't stop favoriting.</p>
+            <h2 className="font-display text-2xl font-bold text-ink sm:text-3xl">Trending with buyers</h2>
+            <p className="mt-1 text-ink/60">In-demand lines — available wholesale and retail.</p>
           </div>
           <Link href="/search" className="hidden text-sm font-medium text-brand-600 hover:underline sm:block">
             View all
@@ -145,23 +175,24 @@ export default function Home() {
         </div>
       </section>
 
-      {/* EDITORS BANNER */}
+      {/* WHOLESALE BANNER */}
       <section className="container-x">
         <div className="grid overflow-hidden rounded-2xl bg-ink text-white md:grid-cols-2">
           <div className="flex flex-col justify-center gap-4 p-10 md:p-14">
-            <span className="w-fit rounded-full bg-white/10 px-3 py-1 text-sm">Editors' picks</span>
+            <span className="w-fit rounded-full bg-white/10 px-3 py-1 text-sm">For businesses</span>
             <h2 className="font-display text-3xl font-bold leading-tight">
-              Handpicked finds for slow, intentional living
+              Buy wholesale, factory-direct
             </h2>
             <p className="text-white/70">
-              Our team scours thousands of shops each week to surface the pieces
-              worth making room for.
+              Stock your store or brand with low minimums and trade pricing. Compare
+              suppliers, request samples, and pay securely — with your money protected
+              until your order ships.
             </p>
             <Link
-              href="/category/home-living"
+              href="/search"
               className="w-fit rounded-full bg-brand-500 px-6 py-3 font-semibold text-white transition hover:bg-brand-400"
             >
-              Explore the edit
+              Explore wholesale
             </Link>
           </div>
           <div className="grid grid-cols-2">
@@ -176,20 +207,27 @@ export default function Home() {
                   sizes="(max-width: 768px) 50vw, 25vw"
                   className="aspect-square w-full transition group-hover:brightness-95"
                 />
-                <span className="absolute bottom-3 left-3 z-10 rounded-full bg-black/50 px-3 py-1 text-xs font-medium backdrop-blur">
-                  {p.title.split(" ").slice(0, 3).join(" ")}
-                </span>
+                {p.wholesalePrice && (
+                  <span className="absolute bottom-3 left-3 z-10 rounded-full bg-black/55 px-3 py-1 text-xs font-medium backdrop-blur">
+                    Wholesale {money(p.wholesalePrice)}
+                  </span>
+                )}
               </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* SHOP SPOTLIGHT */}
+      {/* SUPPLIER SPOTLIGHT */}
       <section className="container-x py-14">
-        <h2 className="mb-6 font-display text-2xl font-bold text-ink sm:text-3xl">
-          Shops we're loving
-        </h2>
+        <div className="mb-6 flex items-end justify-between">
+          <div>
+            <h2 className="font-display text-2xl font-bold text-ink sm:text-3xl">
+              Verified suppliers
+            </h2>
+            <p className="mt-1 text-ink/60">Our launch cohort of vetted manufacturers.</p>
+          </div>
+        </div>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {shops.slice(0, 6).map((s) => (
             <Link
@@ -201,10 +239,17 @@ export default function Home() {
                 {s.name.charAt(0)}
               </span>
               <div className="min-w-0">
-                <h3 className="truncate font-semibold text-ink">{s.name}</h3>
+                <h3 className="flex items-center gap-1.5 truncate font-semibold text-ink">
+                  {s.name}
+                  {s.verified && (
+                    <span className="shrink-0 rounded-full bg-brand-100 px-1.5 py-0.5 text-[10px] font-bold text-brand-700" title="Verified supplier">
+                      ✓ Verified
+                    </span>
+                  )}
+                </h3>
                 <p className="truncate text-sm text-ink/60">{s.tagline}</p>
                 <p className="mt-0.5 text-xs text-ink/50">
-                  ⭐ {s.rating} · {s.sales.toLocaleString()} sales · {s.location}
+                  ⭐ {s.rating} · {s.flag} {s.location} · MOQ from {money(s.minOrder ?? 0)}
                 </p>
               </div>
             </Link>
@@ -212,19 +257,42 @@ export default function Home() {
         </div>
       </section>
 
+      {/* FOR SUPPLIERS IN ASIA */}
+      <section className="container-x pb-4">
+        <Link
+          href="/for-makers"
+          className="group flex flex-col items-center gap-4 overflow-hidden rounded-2xl border border-brand-200 bg-brand-50 px-6 py-10 text-center transition hover:border-brand-300 sm:flex-row sm:text-left"
+        >
+          <span className="text-4xl">🏭</span>
+          <div className="flex-1">
+            <p className="font-display text-xl font-bold text-ink sm:text-2xl">
+              Manufacturers across Asia — this one&apos;s for you
+            </p>
+            <p className="mt-1 text-ink/70">
+              Starting with Pakistan. Open a store, sell wholesale or retail, and reach buyers
+              in the US, Canada, UK &amp; Europe. Payouts to your country.
+            </p>
+          </div>
+          <span className="shrink-0 rounded-full bg-brand-500 px-6 py-3 font-semibold text-white transition group-hover:bg-brand-600">
+            See how it works →
+          </span>
+        </Link>
+      </section>
+
       {/* SELLER CTA */}
       <section className="container-x pb-14">
         <div className="flex flex-col items-center gap-5 rounded-2xl bg-gradient-to-br from-brand-500 to-brand-700 px-6 py-14 text-center text-white">
-          <h2 className="font-display text-3xl font-bold sm:text-4xl">Turn your craft into a shop</h2>
+          <h2 className="font-display text-3xl font-bold sm:text-4xl">Open your store on Roopraise</h2>
           <p className="max-w-xl text-white/85">
-            Makers across Pakistan, India, Bangladesh, the Middle East &amp; Asia — reach millions of
-            buyers in the USA. No listing fees, no subscription. You only pay when you sell.
+            Manufacturers and brands across Asia — sell wholesale (B2B), retail (B2C), or both.
+            Reach buyers in the US, Canada, UK &amp; Europe. No listing fees, no subscription —
+            you only pay when you sell.
           </p>
           <Link
             href="/sell"
             className="rounded-full bg-white px-8 py-3.5 text-base font-semibold text-brand-700 shadow-sm transition hover:bg-brand-50"
           >
-            Open your Roopraise shop
+            Start selling
           </Link>
         </div>
       </section>

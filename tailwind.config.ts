@@ -9,20 +9,34 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        // Primary — deep teal
         brand: {
-          50: "#fdf3ef",
-          100: "#fbe3d8",
-          200: "#f6c3ae",
-          300: "#ef9a79",
-          400: "#e76f43",
-          500: "#dd4f1f", // primary terracotta
-          600: "#c53e15",
-          700: "#a32f13",
-          800: "#832917",
-          900: "#6b2416",
+          50: "#eafaf6",
+          100: "#cbf0e7",
+          200: "#98e0d1",
+          300: "#5cc9b4",
+          400: "#26a98f",
+          500: "#0e7c6b", // primary
+          600: "#0b6558",
+          700: "#0c5049",
+          800: "#0d403b",
+          900: "#0d3531",
         },
-        cream: "#fdfbf7",
-        ink: "#2b2320",
+        // Warm accent — gold (matches the logo's golden center)
+        accent: {
+          50: "#fffbeb",
+          100: "#fef3c7",
+          200: "#fde68a",
+          300: "#fcd34d",
+          400: "#fbbf24",
+          500: "#f5b301", // accent
+          600: "#d99a00",
+          700: "#b37d00",
+          800: "#8f6400",
+          900: "#6b4b00",
+        },
+        cream: "#fbf8f3",
+        ink: "#17211f",
       },
       fontFamily: {
         display: ["var(--font-display)", "Georgia", "serif"],

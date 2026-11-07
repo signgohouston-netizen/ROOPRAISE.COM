@@ -4,7 +4,7 @@ type Point = { label: string; value: number };
 export function AreaChart({
   data,
   height = 200,
-  color = "#dd4f1f",
+  color = "#0e7c6b",
 }: {
   data: Point[];
   height?: number;
@@ -37,7 +37,7 @@ export function AreaChart({
           x2={w - pad.right}
           y1={pad.top + ih * g}
           y2={pad.top + ih * g}
-          stroke="#2b2320"
+          stroke="#17211f"
           strokeOpacity="0.06"
         />
       ))}
@@ -48,7 +48,7 @@ export function AreaChart({
       ))}
       {data.map((d, i) =>
         i % Math.ceil(data.length / 7) === 0 || i === data.length - 1 ? (
-          <text key={i} x={x(i)} y={h - 6} textAnchor="middle" fontSize="11" fill="#2b2320" fillOpacity="0.5">
+          <text key={i} x={x(i)} y={h - 6} textAnchor="middle" fontSize="11" fill="#17211f" fillOpacity="0.5">
             {d.label}
           </text>
         ) : null
@@ -61,7 +61,7 @@ export function AreaChart({
 export function BarChart({
   data,
   height = 200,
-  color = "#dd4f1f",
+  color = "#0e7c6b",
 }: {
   data: Point[];
   height?: number;
@@ -79,7 +79,7 @@ export function BarChart({
   return (
     <svg viewBox={`0 0 ${w} ${h}`} className="w-full" role="img" aria-label="Bar chart">
       {[0.25, 0.5, 0.75, 1].map((g) => (
-        <line key={g} x1={pad.left} x2={w - pad.right} y1={pad.top + ih * g} y2={pad.top + ih * g} stroke="#2b2320" strokeOpacity="0.06" />
+        <line key={g} x1={pad.left} x2={w - pad.right} y1={pad.top + ih * g} y2={pad.top + ih * g} stroke="#17211f" strokeOpacity="0.06" />
       ))}
       {data.map((d, i) => {
         const bh = (d.value / max) * ih;
@@ -88,7 +88,7 @@ export function BarChart({
         return (
           <g key={i}>
             <rect x={x} y={y} width={bw} height={bh} rx="4" fill={color} opacity={0.85} />
-            <text x={x + bw / 2} y={h - 8} textAnchor="middle" fontSize="11" fill="#2b2320" fillOpacity="0.5">
+            <text x={x + bw / 2} y={h - 8} textAnchor="middle" fontSize="11" fill="#17211f" fillOpacity="0.5">
               {d.label}
             </text>
           </g>
@@ -99,7 +99,7 @@ export function BarChart({
 }
 
 // --- Donut chart -------------------------------------------------------
-const DONUT_COLORS = ["#dd4f1f", "#e76f43", "#8fae7d", "#7fa8c9", "#cdae7e", "#a67fb0", "#7cc0a8", "#8783a6"];
+const DONUT_COLORS = ["#0e7c6b", "#f5b301", "#26a98f", "#5cc9b4", "#b37d00", "#0c5049", "#98e0d1", "#6b4b00"];
 
 export function Donut({
   data,

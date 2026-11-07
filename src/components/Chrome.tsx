@@ -1,6 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import GeoBanner from "./GeoBanner";
 
 export default function Chrome({
   header,
@@ -18,6 +19,7 @@ export default function Chrome({
 
   return (
     <>
+      <GeoBanner />
       {header}
       <main>{children}</main>
       {footer}

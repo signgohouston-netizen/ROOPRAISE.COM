@@ -16,9 +16,9 @@ const badgeStyles: Record<string, string> = {
 export default function ProductCard({ product }: { product: Product }) {
   const shop = getShop(product.shop);
   return (
-    <div className="group relative flex flex-col">
+    <div className="group relative flex flex-col overflow-hidden rounded-xl2 border border-ink/10 bg-white shadow-card transition hover:border-brand-200 hover:shadow-pop">
       <Link href={`/product/${product.slug}`} className="block">
-        <div className="relative overflow-hidden rounded-xl2 shadow-card">
+        <div className="relative overflow-hidden">
           <ProductArt
             gradient={product.gradient}
             emoji={product.emoji}
@@ -36,36 +36,52 @@ export default function ProductCard({ product }: { product: Product }) {
               {product.badge}
             </span>
           )}
+          {shop && (
+            <span className="absolute bottom-0 left-0 bg-ink/80 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-white backdrop-blur-sm">
+              📍 {shop.location}
+            </span>
+          )}
         </div>
       </Link>
-      <FavoriteButton
-        productId={product.id}
-        className="absolute right-3 top-3 z-10"
-      />
-      <div className="mt-3 flex flex-col gap-1">
+      <FavoriteButton productId={product.id} className="absolute right-3 top-3 z-10" />
+
+      <div className="flex flex-1 flex-col gap-1 p-3">
         <Link href={`/product/${product.slug}`}>
-          <h3 className="line-clamp-1 text-[15px] font-medium text-ink group-hover:underline">
+          <h3 className="line-clamp-2 min-h-[2.5rem] text-[14px] font-medium leading-snug text-ink group-hover:underline">
             {product.title}
           </h3>
         </Link>
-        <Stars rating={product.rating} reviews={product.reviews} />
+
         <div className="mt-0.5 flex items-baseline gap-2">
-          <span className="text-lg font-semibold text-ink">{money(product.price)}</span>
-          {product.compareAt && (
-            <span className="text-sm text-ink/40 line-through">{money(product.compareAt)}</span>
-          )}
-          {product.freeShipping && (
-            <span className="ml-auto text-xs font-medium text-emerald-700">Free shipping</span>
+          <span className="text-lg font-bold text-ink">{money(product.wholesalePrice ?? product.price)}</span>
+          {product.wholesalePrice && (
+            <span className="text-xs text-ink/40">retail {money(product.price)}</span>
           )}
         </div>
+        <p className="text-xs text-ink/50">
+          {product.moq ? `MOQ: ${product.moq} units` : "Single units available"}
+        </p>
+
+        <div className="mt-0.5 flex items-center gap-1.5">
+          <Stars rating={product.rating} reviews={product.reviews} />
+        </div>
+
         {shop && (
           <Link
             href={`/shop/${shop.slug}`}
-            className="mt-0.5 w-fit text-xs text-ink/50 hover:text-brand-600 hover:underline"
+            className="mt-0.5 flex w-fit items-center gap-1 text-xs font-medium text-ink/60 hover:text-brand-600 hover:underline"
           >
-            {shop.name}
+            {shop.flag} {shop.name}
+            {shop.verified && <span className="text-brand-600" title="Verified supplier">✓</span>}
           </Link>
         )}
+
+        <Link
+          href={`/product/${product.slug}`}
+          className="mt-2 block rounded-lg bg-orange-500 py-2 text-center text-sm font-semibold text-white transition hover:bg-orange-600"
+        >
+          Contact Supplier
+        </Link>
       </div>
     </div>
   );

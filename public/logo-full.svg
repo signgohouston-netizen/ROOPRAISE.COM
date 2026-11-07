@@ -1,8 +1,8 @@
 <svg width="380" height="80" viewBox="0 0 380 80" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="tile" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#e76f43"/>
-      <stop offset="1" stop-color="#c53e15"/>
+      <stop offset="0" stop-color="#12a892"/>
+      <stop offset="1" stop-color="#0b6558"/>
     </linearGradient>
   </defs>
   <g transform="translate(8,16)">
@@ -16,10 +16,10 @@
       <ellipse cx="24" cy="14.4" rx="4" ry="8.4" transform="rotate(240 24 24)"/>
       <ellipse cx="24" cy="14.4" rx="4" ry="8.4" transform="rotate(300 24 24)"/>
     </g>
-    <circle cx="24" cy="24" r="5.4" fill="#f7b34a"/>
-    <circle cx="24" cy="24" r="2.1" fill="#c53e15"/>
+    <circle cx="24" cy="24" r="5.4" fill="#f5b301"/>
+    <circle cx="24" cy="24" r="2.1" fill="#0b6558"/>
   </g>
   <text x="68" y="52" font-family="Georgia, 'Times New Roman', serif" font-size="40" font-weight="bold" letter-spacing="-1">
-    <tspan fill="#2b2320">Roo</tspan><tspan fill="#dd4f1f">praise</tspan>
+    <tspan fill="#17211f">Roo</tspan><tspan fill="#0e7c6b">praise</tspan>
   </text>
 </svg>
