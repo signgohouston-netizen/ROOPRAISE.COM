@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Suspense } from "react";
 import { categories } from "@/lib/data";
 import SearchBar from "./SearchBar";
+import CurrencySwitcher from "./CurrencySwitcher";
 import Logo from "./Logo";
 
 export default function Header() {
@@ -19,9 +20,10 @@ export default function Header() {
           </div>
 
           <nav className="ml-auto flex items-center gap-1.5">
+            <CurrencySwitcher className="hidden sm:inline-flex" />
             <Link
               href="/sell"
-              className="hidden rounded-full bg-accent-500 px-4 py-2 text-sm font-semibold text-ink transition hover:bg-accent-600 sm:block"
+              className="hidden rounded-full bg-accent-500 px-4 py-2 text-sm font-semibold text-ink transition hover:bg-accent-600 lg:block"
             >
               Free supplier signup
             </Link>
@@ -42,10 +44,13 @@ export default function Header() {
         </div>
 
         {/* mobile search */}
-        <div className="pb-3 md:hidden">
-          <Suspense fallback={<div className="h-11" />}>
-            <SearchBar />
-          </Suspense>
+        <div className="flex items-center gap-2 pb-3 md:hidden">
+          <div className="flex-1">
+            <Suspense fallback={<div className="h-11" />}>
+              <SearchBar />
+            </Suspense>
+          </div>
+          <CurrencySwitcher />
         </div>
 
         {/* category nav */}

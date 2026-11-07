@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { shops, productsByShop } from "@/lib/data";
-import { money } from "@/lib/format";
+import Price from "@/components/Price";
 
 export const metadata: Metadata = {
   title: "Suppliers",
@@ -60,9 +60,11 @@ export default function SellersPage() {
               <p className="mt-3 text-sm text-ink/60">{s.tagline}</p>
               <div className="mt-3 flex flex-wrap gap-2">
                 {s.wholesale && (
-                  <span className="rounded-full bg-brand-50 px-2.5 py-1 text-[11px] font-medium text-brand-700">
-                    📦 MOQ from {money(s.minOrder ?? 0)}
-                  </span>
+                  <Price
+                    usd={s.minOrder ?? 0}
+                    prefix="📦 MOQ from "
+                    className="rounded-full bg-brand-50 px-2.5 py-1 text-[11px] font-medium text-brand-700"
+                  />
                 )}
                 {s.leadTime && (
                   <span className="rounded-full border border-ink/15 px-2.5 py-1 text-[11px] font-medium text-ink/60">

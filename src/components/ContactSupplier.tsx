@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import type { Product, Shop } from "@/lib/data";
-import { money } from "@/lib/format";
 
 export default function ContactSupplier({
   product,

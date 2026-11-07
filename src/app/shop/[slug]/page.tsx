@@ -2,8 +2,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getShop, productsByShop, shops } from "@/lib/data";
-import { money } from "@/lib/format";
 import ProductCard from "@/components/ProductCard";
+import Price from "@/components/Price";
 
 export function generateStaticParams() {
   return shops.map((s) => ({ slug: s.slug }));
@@ -56,8 +56,11 @@ export default async function ShopPage({
             </div>
             <div className="mt-3 flex flex-wrap gap-2">
               {shop.wholesale && (
-                <span className="rounded-full bg-brand-50 px-3 py-1 text-xs font-medium text-brand-700">
-                  📦 Wholesale{shop.minOrder ? ` · MOQ from ${money(shop.minOrder)}` : ""}
+                <span className="flex items-center gap-1 rounded-full bg-brand-50 px-3 py-1 text-xs font-medium text-brand-700">
+                  📦 Wholesale
+                  {shop.minOrder ? (
+                    <Price usd={shop.minOrder} prefix="· MOQ from " />
+                  ) : null}
                 </span>
               )}
               {shop.retail && (

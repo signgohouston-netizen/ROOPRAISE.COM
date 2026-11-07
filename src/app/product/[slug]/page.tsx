@@ -2,9 +2,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getProduct, getShop, getCategory, relatedProducts, products } from "@/lib/data";
-import { money } from "@/lib/format";
 import ProductArt from "@/components/ProductArt";
 import ProductCard from "@/components/ProductCard";
+import Price from "@/components/Price";
 import Stars from "@/components/Stars";
 import ContactSupplier from "@/components/ContactSupplier";
 import FavoriteButton from "@/components/FavoriteButton";
@@ -132,12 +132,12 @@ export default async function ProductPage({
           </div>
 
           <div className="mt-4 flex items-baseline gap-3">
-            <span className="text-3xl font-bold text-ink">{money(product.price)}</span>
+            <Price usd={product.price} className="text-3xl font-bold text-ink" />
             {product.compareAt && (
               <>
-                <span className="text-lg text-ink/40 line-through">{money(product.compareAt)}</span>
+                <Price usd={product.compareAt} className="text-lg text-ink/40 line-through" />
                 <span className="rounded-full bg-rose-100 px-2 py-0.5 text-sm font-semibold text-rose-700">
-                  Save {money(product.compareAt - product.price)}
+                  Save <Price usd={product.compareAt - product.price} />
                 </span>
               </>
             )}
@@ -154,11 +154,11 @@ export default async function ProductPage({
               <div className="flex items-center justify-between">
                 <span className="text-sm font-semibold text-brand-800">🏷️ Wholesale price</span>
                 {shop?.minOrder && (
-                  <span className="text-xs text-brand-700">Store MOQ from {money(shop.minOrder)}</span>
+                  <Price usd={shop.minOrder} prefix="Store MOQ from " className="text-xs text-brand-700" />
                 )}
               </div>
               <div className="mt-1 flex items-baseline gap-2">
-                <span className="text-2xl font-bold text-brand-800">{money(product.wholesalePrice)}</span>
+                <Price usd={product.wholesalePrice} className="text-2xl font-bold text-brand-800" />
                 <span className="text-sm text-brand-700">/ unit</span>
                 {product.moq && (
                   <span className="ml-auto rounded-full bg-white px-2.5 py-1 text-xs font-medium text-brand-700">

@@ -1,9 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
 import { categories, products, shops } from "@/lib/data";
-import { money } from "@/lib/format";
 import ProductCard from "@/components/ProductCard";
 import ProductArt from "@/components/ProductArt";
+import Price from "@/components/Price";
 
 export default function Home() {
   const bestsellers = products.filter((p) => p.badge === "Bestseller" || p.rating >= 4.9).slice(0, 8);
@@ -208,9 +208,11 @@ export default function Home() {
                   className="aspect-square w-full transition group-hover:brightness-95"
                 />
                 {p.wholesalePrice && (
-                  <span className="absolute bottom-3 left-3 z-10 rounded-full bg-black/55 px-3 py-1 text-xs font-medium backdrop-blur">
-                    Wholesale {money(p.wholesalePrice)}
-                  </span>
+                  <Price
+                    usd={p.wholesalePrice}
+                    prefix="Wholesale "
+                    className="absolute bottom-3 left-3 z-10 rounded-full bg-black/55 px-3 py-1 text-xs font-medium backdrop-blur"
+                  />
                 )}
               </Link>
             ))}
@@ -248,8 +250,9 @@ export default function Home() {
                   )}
                 </h3>
                 <p className="truncate text-sm text-ink/60">{s.tagline}</p>
-                <p className="mt-0.5 text-xs text-ink/50">
-                  ⭐ {s.rating} · {s.flag} {s.location} · MOQ from {money(s.minOrder ?? 0)}
+                <p className="mt-0.5 flex flex-wrap items-center gap-x-1 text-xs text-ink/50">
+                  ⭐ {s.rating} · {s.flag} {s.location} ·{" "}
+                  <Price usd={s.minOrder ?? 0} prefix="MOQ from " />
                 </p>
               </div>
             </Link>

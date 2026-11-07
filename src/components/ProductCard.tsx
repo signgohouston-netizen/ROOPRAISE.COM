@@ -1,8 +1,8 @@
 import Link from "next/link";
 import type { Product } from "@/lib/data";
 import { getShop } from "@/lib/data";
-import { money } from "@/lib/format";
 import ProductArt from "./ProductArt";
+import Price from "./Price";
 import Stars from "./Stars";
 import FavoriteButton from "./FavoriteButton";
 
@@ -53,9 +53,9 @@ export default function ProductCard({ product }: { product: Product }) {
         </Link>
 
         <div className="mt-0.5 flex items-baseline gap-2">
-          <span className="text-lg font-bold text-ink">{money(product.wholesalePrice ?? product.price)}</span>
+          <Price usd={product.wholesalePrice ?? product.price} className="text-lg font-bold text-ink" />
           {product.wholesalePrice && (
-            <span className="text-xs text-ink/40">retail {money(product.price)}</span>
+            <Price usd={product.price} prefix="retail " className="text-xs text-ink/40" />
           )}
         </div>
         <p className="text-xs text-ink/50">

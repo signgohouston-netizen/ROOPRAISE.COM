@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { CurrencyProvider } from "@/lib/currency";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Chrome from "@/components/Chrome";
@@ -17,9 +18,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className="min-h-screen">
-        <Chrome header={<Header />} footer={<Footer />}>
-          {children}
-        </Chrome>
+        <CurrencyProvider>
+          <Chrome header={<Header />} footer={<Footer />}>
+            {children}
+          </Chrome>
+        </CurrencyProvider>
       </body>
     </html>
   );
